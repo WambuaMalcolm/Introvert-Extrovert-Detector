@@ -1,0 +1,25 @@
+stages:
+  data_cleaning:
+    cmd: python -m src.components.data_cleaning
+    deps:
+      - data/raw
+      - src/components/data_ingestion.py
+      - src/components/data_cleaning.py
+    outs:
+      - data/processed
+
+  train_pipeline:
+    cmd: python -m src.pipeline.train_pipeline
+    deps:
+      - src/pipeline/preprocessing_pipeline.py
+      - src/pipeline/train_pipeline.py
+    outs:
+      - model/xgb_model.pkl
+
+  model_evaluation:
+    cmd: python -m src.model_evaluation
+    deps:
+      - src/model_evaluation.py
+      - model/xgb_model.pkl
+    metrics:
+      - metrics.json
