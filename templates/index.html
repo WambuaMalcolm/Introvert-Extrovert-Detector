@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personality Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+  </head>
+  <body
+    class="bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 min-h-screen flex items-center justify-center"
+  >
+    <div class="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-lg">
+      <h2 class="text-2xl font-bold text-center text-indigo-600 mb-6">
+        Introvert vs Extrovert Predictor
+      </h2>
+
+      <form id="predictForm" class="space-y-4">
+        <!-- Time spent alone -->
+        <div>
+          <label class="block text-gray-700 font-medium"
+            >Time Spent Alone (hours)</label
+          >
+          <input
+            type="number"
+            name="Time_spent_Alone"
+            min="0"
+            max="11"
+            class="w-full mt-1 p-2 border rounded-lg focus:ring-2 focus:ring-indigo-400"
+            required
+          />
+        </div>
+
+        <!-- Stage fear -->
+        <div>
+          <label class="block text-gray-700 font-medium">Stage Fear</label>
+          <select
+            name="Stage_fear"
+            class="w-full mt-1 p-2 border rounded-lg focus:ring-2 focus:ring-indigo-400"
+            required
+          >
+            <option value="">-- Select --</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <!-- Social event attendance -->
+        <div>
+          <label class="block text-gray-700 font-medium"
+            >Social Event Attendance (per month)</label
+          >
+          <input
+            type="number"
+            name="Social_event_attendance"
+            min="0"
+            max="10"
+            class="w-full mt-1 p-2 border rounded-lg focus:ring-2 focus:ring-indigo-400"
+            required
+          />
+        </div>
+
+        <!-- Going outside -->
+        <div>
+          <label class="block text-gray-700 font-medium"
+            >Going Outside (times per week)</label
+          >
+          <input
+            type="number"
+            name="Going_outside"
+            min="0"
+            max="7"
+            class="w-full mt-1 p-2 border rounded-lg focus:ring-2 focus:ring-indigo-400"
+            required
+          />
+        </div>
+
+        <!-- Drained after socializing -->
+        <div>
+          <label class="block text-gray-700 font-medium"
+            >Drained After Socializing</label
+          >
+          <select
+            name="Drained_after_socializing"
+            class="w-full mt-1 p-2 border rounded-lg focus:ring-2 focus:ring-indigo-400"
+            required
+          >
+            <option value="">-- Select --</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <!-- Friends circle size -->
+        <div>
+          <label class="block text-gray-700 font-medium"
+            >Friends Circle Size</label
+          >
+          <input
+            type="number"
+            name="Friends_circle_size"
+            min="0"
+            max="15"
+            class="w-full mt-1 p-2 border rounded-lg focus:ring-2 focus:ring-indigo-400"
+            required
+          />
+        </div>
+
+        <!-- Post frequency -->
+        <div>
+          <label class="block text-gray-700 font-medium"
+            >Post Frequency (per week)</label
+          >
+          <input
+            type="number"
+            name="Post_frequency"
+            min="0"
+            max="10"
+            class="w-full mt-1 p-2 border rounded-lg focus:ring-2 focus:ring-indigo-400"
+            required
+          />
+        </div>
+
+        <!-- Submit button -->
+        <button
+          type="submit"
+          class="w-full bg-indigo-500 text-white py-2 rounded-lg hover:bg-indigo-600 transition"
+        >
+          Predict Personality
+        </button>
+      </form>
+
+      <!-- Prediction Result -->
+      <div id="result" class="mt-6 text-center text-lg font-semibold"></div>
+    </div>
+
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+  </body>
+</html>
