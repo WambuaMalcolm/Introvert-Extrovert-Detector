@@ -10,7 +10,6 @@ mlruns/
 *.so
 
 # Unnecessary files
-data/
 *.pkl
 *.log
 dvc.lock
